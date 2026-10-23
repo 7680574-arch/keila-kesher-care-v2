@@ -1,0 +1,70 @@
+{
+  "name": "FormConfig",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "\u05e9\u05dd \u05d8\u05d5\u05e4\u05e1"
+    },
+    "tofes_id": {
+      "type": "string",
+      "title": "\u05de\u05e1\u05e4\u05e8 \u05d8\u05d5\u05e4\u05e1"
+    },
+    "id_field": {
+      "type": "string",
+      "title": "\u05e9\u05d3\u05d4 \u05de\u05d6\u05d4\u05d4 (\u05de\"\u05d6)"
+    },
+    "api_password": {
+      "type": "string",
+      "title": "\u05de\u05e4\u05ea\u05d7 API (\u05e0\u05d3\u05e8\u05d9\u05dd \u05e4\u05dc\u05d5\u05e1)"
+    },
+    "titles": {
+      "type": "string",
+      "title": "\u05db\u05d5\u05ea\u05e8\u05d5\u05ea \u05e9\u05d3\u05d5\u05ea (JSON)"
+    },
+    "notes": {
+      "type": "string",
+      "title": "\u05d4\u05e2\u05e8\u05d5\u05ea"
+    },
+    "auto_refresh": {
+      "type": "boolean",
+      "default": false,
+      "title": "\u05e8\u05d9\u05e2\u05e0\u05d5\u05df \u05d0\u05d5\u05d8\u05d5\u05de\u05d8\u05d9 (\u05e9\u05e2\u05ea\u05d9)"
+    },
+    "last_seen_id": {
+      "type": "string",
+      "title": "\u05de\u05d6\u05d4\u05d4 \u05e8\u05e9\u05d5\u05de\u05d4 \u05d0\u05d7\u05e8\u05d5\u05df \u05e9\u05e0\u05d1\u05d3\u05e7"
+    },
+    "new_count": {
+      "type": "number",
+      "default": 0,
+      "title": "\u05de\u05e1\u05e4\u05e8 \u05e9\u05d5\u05e8\u05d5\u05ea \u05d7\u05d3\u05e9\u05d5\u05ea (\u05dc\u05d0 \u05e0\u05e7\u05e8\u05d0\u05d5)"
+    }
+  },
+  "required": [
+    "name",
+    "tofes_id"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

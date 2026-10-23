@@ -1,0 +1,29 @@
+{
+  "name": "LashavuaTovaSetting",
+  "type": "object",
+  "properties": {
+    "mosad_id": {
+      "type": "string",
+      "title": "\u05e7\u05d5\u05d3 \u05d4\u05e7\u05d5\u05e4\u05d4 \u05d1\u05e0\u05d3\u05e8\u05d9\u05dd \u05e4\u05dc\u05d5\u05e1 (MosadId)"
+    },
+    "mosad_name": {
+      "type": "string",
+      "title": "\u05e9\u05dd \u05d4\u05e7\u05d5\u05e4\u05d4"
+    },
+    "last_synced_at": {
+      "type": "string",
+      "title": "\u05d6\u05de\u05df \u05e1\u05e0\u05db\u05e8\u05d5\u05df \u05d0\u05d7\u05e8\u05d5\u05df"
+    },
+    "last_synced_count": {
+      "type": "number",
+      "title": "\u05de\u05e1\u05e4\u05e8 \u05e8\u05e9\u05d5\u05de\u05d5\u05ea \u05de\u05d4\u05e1\u05e0\u05db\u05e8\u05d5\u05df \u05d4\u05d0\u05d7\u05e8\u05d5\u05df"
+    },
+    "notes": {
+      "type": "string",
+      "title": "\u05d4\u05e2\u05e8\u05d5\u05ea"
+    }
+  },
+  "required": [
+    "mosad_id"
+  ]
+}

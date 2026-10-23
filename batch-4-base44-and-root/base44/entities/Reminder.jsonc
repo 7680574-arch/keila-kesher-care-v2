@@ -1,0 +1,122 @@
+{
+  "name": "Reminder",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string",
+      "enum": [
+        "task",
+        "reminder"
+      ],
+      "default": "task",
+      "title": "\u05e1\u05d5\u05d2 (\u05de\u05e9\u05d9\u05de\u05d4 / \u05ea\u05d6\u05db\u05d5\u05e8\u05ea)"
+    },
+    "title": {
+      "type": "string",
+      "title": "\u05db\u05d5\u05ea\u05e8\u05ea"
+    },
+    "notes": {
+      "type": "string",
+      "title": "\u05d4\u05e2\u05e8\u05d5\u05ea"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date",
+      "title": "\u05ea\u05d0\u05e8\u05d9\u05da"
+    },
+    "due_time": {
+      "type": "string",
+      "title": "\u05e9\u05e2\u05d4"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "urgent"
+      ],
+      "default": "medium",
+      "title": "\u05e2\u05d3\u05d9\u05e4\u05d5\u05ea"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "done"
+      ],
+      "default": "pending",
+      "title": "\u05e1\u05d8\u05d8\u05d5\u05e1"
+    },
+    "assignee_email": {
+      "type": "string",
+      "title": "\u05d0\u05d7\u05e8\u05d0\u05d9 \u05de\u05d8\u05e4\u05dc (\u05d0\u05d9\u05de\u05d9\u05d9\u05dc \u05de\u05e9\u05ea\u05de\u05e9)"
+    },
+    "assignee_name": {
+      "type": "string",
+      "title": "\u05d0\u05d7\u05e8\u05d0\u05d9 \u05de\u05d8\u05e4\u05dc (\u05e9\u05dd)"
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "rls": {
+    "create": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        }
+      ]
+    },
+    "read": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        },
+        {
+          "created_by_id": "{{user.id}}"
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "created_by_id": "{{user.id}}"
+        }
+      ]
+    }
+  }
+}

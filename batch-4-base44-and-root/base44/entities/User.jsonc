@@ -1,0 +1,31 @@
+{
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "The role of the user in the app",
+      "enum": [
+        "admin",
+        "user",
+        "guest",
+        "telclick_manager",
+        "cases"
+      ]
+    },
+    "allowed_tabs": {
+      "type": "string",
+      "title": "\u05dc\u05e9\u05d5\u05e0\u05d9\u05d5\u05ea \u05de\u05d5\u05e8\u05e9\u05d5\u05ea (JSON)"
+    },
+    "authorized_cases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "title": "\u05ea\u05d9\u05e7\u05d9\u05dd \u05de\u05d5\u05e8\u05e9\u05d9\u05dd (\u05de\u05d6\u05d4\u05d9\u05dd)"
+    }
+  },
+  "required": [
+    "role"
+  ],
+  "name": "User",
+  "type": "object"
+}

@@ -1,0 +1,82 @@
+{
+  "name": "LashavuaTovaTransaction",
+  "type": "object",
+  "properties": {
+    "bucket": {
+      "type": "string",
+      "enum": [
+        "lashavua",
+        "supermarket",
+        "expenses"
+      ],
+      "default": "lashavua",
+      "title": "\u05e7\u05d5\u05e4\u05d4 (\u05dc\u05e9\u05d1\u05d5\u05e2 \u05de\u05d8\u05d5\u05d1\u05d4 / \u05e1\u05d5\u05e4\u05e8\u05d9\u05dd / \u05d4\u05d5\u05e6\u05d0\u05d5\u05ea)"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "income",
+        "transfer"
+      ],
+      "default": "income",
+      "title": "\u05e1\u05d5\u05d2 \u05ea\u05e0\u05d5\u05e2\u05d4 (\u05d4\u05db\u05e0\u05e1\u05d4 / \u05d4\u05e2\u05d1\u05e8\u05d4)"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "title": "\u05ea\u05d0\u05e8\u05d9\u05da"
+    },
+    "description": {
+      "type": "string",
+      "title": "\u05e4\u05d9\u05e8\u05d5\u05d8 / \u05de\u05d5\u05d8\u05d1 \u05d4\u05e2\u05d1\u05e8\u05d4"
+    },
+    "amount": {
+      "type": "number",
+      "title": "\u05e1\u05db\u05d5\u05dd"
+    },
+    "commission": {
+      "type": "number",
+      "title": "\u05e2\u05de\u05dc\u05d4"
+    },
+    "category": {
+      "type": "string",
+      "title": "\u05e7\u05d8\u05d2\u05d5\u05e8\u05d9\u05d4"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "nedarim",
+        "manual"
+      ],
+      "default": "manual",
+      "title": "\u05de\u05e7\u05d5\u05e8"
+    },
+    "nedarim_transaction_id": {
+      "type": "string",
+      "title": "\u05de\u05d6\u05d4\u05d4 \u05e2\u05e1\u05e7\u05ea \u05e0\u05d3\u05e8\u05d9\u05dd (\u05dc\u05de\u05e0\u05d9\u05e2\u05ea \u05db\u05e4\u05d9\u05dc\u05d5\u05d9\u05d5\u05ea)"
+    },
+    "nedarim_transaction_num": {
+      "type": "number",
+      "title": "\u05de\u05d6\u05d4\u05d4 \u05e2\u05e1\u05e7\u05ea \u05e0\u05d3\u05e8\u05d9\u05dd (\u05de\u05e1\u05e4\u05e8\u05d9)"
+    },
+    "masof_name": {
+      "type": "string",
+      "title": "\u05e9\u05dd \u05e2\u05de\u05d3\u05d4 / \u05e7\u05d5\u05e4\u05d4"
+    },
+    "notes": {
+      "type": "string",
+      "title": "\u05d4\u05e2\u05e8\u05d5\u05ea"
+    },
+    "legacy": {
+      "type": "boolean",
+      "default": false,
+      "title": "\u05d7\u05d9\u05d5\u05d1 \u05d9\u05e9\u05df (\u05de\u05d7\u05d5\u05e5 \u05dc\u05d7\u05d9\u05e9\u05d5\u05d1 \u05d9\u05ea\u05e8\u05d4)"
+    }
+  },
+  "required": [
+    "bucket",
+    "kind",
+    "date",
+    "amount"
+  ]
+}

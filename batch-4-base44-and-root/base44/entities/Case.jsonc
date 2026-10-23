@@ -1,0 +1,151 @@
+{
+  "name": "Case",
+  "type": "object",
+  "properties": {
+    "case_number": {
+      "type": "string",
+      "title": "\u05de\u05e1\u05e4\u05e8 \u05ea\u05d9\u05e7"
+    },
+    "client_id": {
+      "type": "string",
+      "title": "\u05dc\u05e7\u05d5\u05d7"
+    },
+    "client_name": {
+      "type": "string",
+      "title": "\u05e9\u05dd \u05dc\u05e7\u05d5\u05d7"
+    },
+    "title": {
+      "type": "string",
+      "title": "\u05db\u05d5\u05ea\u05e8\u05ea \u05d4\u05ea\u05d9\u05e7"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "medical",
+        "welfare",
+        "mental_health",
+        "financial",
+        "legal",
+        "other"
+      ],
+      "default": "welfare",
+      "title": "\u05e1\u05d5\u05d2 \u05ea\u05d9\u05e7"
+    },
+    "description": {
+      "type": "string",
+      "title": "\u05ea\u05d9\u05d0\u05d5\u05e8"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "in_progress",
+        "urgent",
+        "closed"
+      ],
+      "default": "open",
+      "title": "\u05e1\u05d8\u05d8\u05d5\u05e1"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "urgent"
+      ],
+      "default": "medium",
+      "title": "\u05e2\u05d3\u05d9\u05e4\u05d5\u05ea"
+    },
+    "opened_date": {
+      "type": "string",
+      "format": "date",
+      "title": "\u05ea\u05d0\u05e8\u05d9\u05da \u05e4\u05ea\u05d9\u05d7\u05d4"
+    },
+    "closed_date": {
+      "type": "string",
+      "format": "date",
+      "title": "\u05ea\u05d0\u05e8\u05d9\u05da \u05e1\u05d2\u05d9\u05e8\u05d4"
+    },
+    "assigned_worker": {
+      "type": "string",
+      "title": "\u05e2\u05d5\u05d1\u05d3 \u05de\u05d8\u05e4\u05dc"
+    },
+    "summary": {
+      "type": "string",
+      "title": "\u05e1\u05d9\u05db\u05d5\u05dd"
+    },
+    "authorized_emails": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "title": "\u05de\u05d5\u05e8\u05e9\u05d9\u05dd \u05dc\u05ea\u05d9\u05e7 (\u05de\u05d9\u05d9\u05dc\u05d9\u05dd)"
+    }
+  },
+  "required": [
+    "client_id",
+    "title",
+    "type"
+  ],
+  "rls": {
+    "create": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        }
+      ]
+    },
+    "read": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        },
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "data.authorized_emails": "{{user.email}}"
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

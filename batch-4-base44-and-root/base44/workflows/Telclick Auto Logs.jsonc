@@ -1,0 +1,47 @@
+{
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "telclick_auto_logs",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "save_log": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "telclickLogSave",
+            "args": {
+              "secret": "kesher_tlk_c49e679b9679e5ba3f7892baa1ea887ba305"
+            }
+          },
+          "then": "end",
+          "x-base44": {
+            "title": "\u05e9\u05de\u05d9\u05e8\u05ea \u05dc\u05d5\u05d2 \u05d8\u05dc\u05e7\u05dc\u05d9\u05e7",
+            "description": "\u05ea\u05de\u05d5\u05e0\u05ea \u05de\u05e6\u05d1 \u05e0\u05d5\u05db\u05d7\u05d9\u05ea \u05e9\u05dc \u05d4\u05e0\u05e6\u05d9\u05d2\u05d9\u05dd"
+          }
+        }
+      }
+    ]
+  },
+  "description": "\u05e9\u05d5\u05de\u05e8 \u05dc\u05d5\u05d2 \u05e9\u05dc \u05e0\u05e6\u05d9\u05d2\u05d9 \u05d8\u05dc\u05e7\u05dc\u05d9\u05e7 \u05db\u05dc 5 \u05d3\u05e7\u05d5\u05ea \u05d1\u05d9\u05df 07:00 \u05dc-17:59 \u05de\u05d3\u05d9 \u05d9\u05d5\u05dd, \u05dc\u05e0\u05d9\u05ea\u05d5\u05d7 \u05de\u05d0\u05d5\u05d7\u05e8 \u05d9\u05d5\u05ea\u05e8 \u05d1\u05de\u05e1\u05da \u05e0\u05d9\u05e1\u05d5\u05d9 \u05d8\u05dc\u05e7\u05dc\u05d9\u05e7",
+  "trigger": {
+    "condition": null,
+    "config": {
+      "trigger_type": "scheduled",
+      "events": [],
+      "schedule_mode": "recurring",
+      "cron_expression": "*/5 7-17 * * *",
+      "one_time_date": null,
+      "timezone": "Asia/Jerusalem",
+      "interval_value": null,
+      "interval_unit": null,
+      "interval_anchor": null,
+      "ends_type": "never",
+      "ends_on_date": null,
+      "ends_after_count": null
+    }
+  },
+  "name": "Telclick Auto Logs"
+}

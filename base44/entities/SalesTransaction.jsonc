@@ -1,0 +1,115 @@
+{
+  "name": "SalesTransaction",
+  "type": "object",
+  "properties": {
+    "order_number": {
+      "type": "string",
+      "title": "\u05de\u05e1\u05e4\u05e8 \u05d4\u05d6\u05de\u05e0\u05d4 / \u05ea\u05e0\u05d5\u05e2\u05d4"
+    },
+    "transaction_date": {
+      "type": "string",
+      "format": "date",
+      "title": "\u05ea\u05d0\u05e8\u05d9\u05da \u05e2\u05e1\u05e7\u05d4"
+    },
+    "transaction_time": {
+      "type": "string",
+      "title": "\u05e9\u05e2\u05ea \u05e2\u05e1\u05e7\u05d4"
+    },
+    "customer_name": {
+      "type": "string",
+      "title": "\u05e9\u05dd \u05dc\u05e7\u05d5\u05d7"
+    },
+    "department": {
+      "type": "string",
+      "title": "\u05de\u05d7\u05dc\u05e7\u05d4"
+    },
+    "product_name": {
+      "type": "string",
+      "title": "\u05e9\u05dd \u05de\u05d5\u05e6\u05e8"
+    },
+    "sku": {
+      "type": "string",
+      "title": "\u05e7\u05d5\u05d3 \u05de\u05d5\u05e6\u05e8 (\u05de\u05e7\"\u05d8)"
+    },
+    "quantity": {
+      "type": "number",
+      "title": "\u05db\u05de\u05d5\u05ea"
+    },
+    "unit_price": {
+      "type": "number",
+      "title": "\u05de\u05d7\u05d9\u05e8 \u05d9\u05d7\u05d9\u05d3\u05d4"
+    },
+    "line_total": {
+      "type": "number",
+      "title": "\u05e1\u05db\u05d5\u05dd \u05e9\u05d5\u05e8\u05d4"
+    },
+    "upload_id": {
+      "type": "string",
+      "title": "\u05de\u05d6\u05d4\u05d4 \u05d4\u05e2\u05dc\u05d0\u05d4"
+    },
+    "upload_title": {
+      "type": "string",
+      "title": "\u05db\u05d5\u05ea\u05e8\u05ea \u05d4\u05e2\u05dc\u05d0\u05d4"
+    }
+  },
+  "required": [
+    "product_name"
+  ],
+  "rls": {
+    "create": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        }
+      ]
+    },
+    "read": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        },
+        {
+          "created_by_id": "{{user.id}}"
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

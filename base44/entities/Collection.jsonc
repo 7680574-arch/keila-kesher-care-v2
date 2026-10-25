@@ -1,0 +1,116 @@
+{
+  "name": "Collection",
+  "type": "object",
+  "properties": {
+    "member_id": {
+      "type": "string",
+      "title": "\u05d7\u05d1\u05e8 \u05e7\u05d4\u05d9\u05dc\u05d4"
+    },
+    "name": {
+      "type": "string",
+      "title": "\u05e9\u05dd \u05de\u05dc\u05d0"
+    },
+    "first_name": {
+      "type": "string",
+      "title": "\u05e9\u05dd \u05e4\u05e8\u05d8\u05d9"
+    },
+    "last_name": {
+      "type": "string",
+      "title": "\u05e9\u05dd \u05de\u05e9\u05e4\u05d7\u05d4"
+    },
+    "id_number": {
+      "type": "string",
+      "title": "\u05ea\u05e2\u05d5\u05d3\u05ea \u05d6\u05d4\u05d5\u05ea"
+    },
+    "fund": {
+      "type": "string",
+      "title": "\u05e9\u05dd \u05d0\u05d9\u05e1\u05d5\u05e3 / \u05e7\u05de\u05e4\u05d9\u05d9\u05df"
+    },
+    "amount": {
+      "type": "number",
+      "title": "\u05e1\u05db\u05d5\u05dd"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "title": "\u05ea\u05d0\u05e8\u05d9\u05da \u05d0\u05d9\u05e1\u05d5\u05e3"
+    },
+    "payment_method": {
+      "type": "string",
+      "enum": [
+        "cash",
+        "check",
+        "transfer",
+        "card",
+        "other"
+      ],
+      "default": "cash",
+      "title": "\u05d0\u05de\u05e6\u05e2\u05d9 \u05ea\u05e9\u05dc\u05d5\u05dd"
+    },
+    "receipt_number": {
+      "type": "string",
+      "title": "\u05de\u05e1\u05e4\u05e8 \u05e7\u05d1\u05dc\u05d4"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "collected",
+        "pending"
+      ],
+      "default": "collected",
+      "title": "\u05e1\u05d8\u05d8\u05d5\u05e1"
+    },
+    "notes": {
+      "type": "string",
+      "title": "\u05d4\u05e2\u05e8\u05d5\u05ea"
+    }
+  },
+  "required": [
+    "name",
+    "amount"
+  ],
+  "rls": {
+    "create": null,
+    "read": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        },
+        {
+          "created_by_id": "{{user.id}}"
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

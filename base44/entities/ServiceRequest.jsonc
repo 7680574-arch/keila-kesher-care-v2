@@ -1,0 +1,108 @@
+{
+  "name": "ServiceRequest",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "\u05db\u05d5\u05ea\u05e8\u05ea \u05d4\u05e7\u05e8\u05d9\u05d0\u05d4"
+    },
+    "description": {
+      "type": "string",
+      "title": "\u05ea\u05d9\u05d0\u05d5\u05e8 \u05d4\u05d1\u05e2\u05d9\u05d4"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "maintenance",
+        "switchboard",
+        "computers",
+        "other"
+      ],
+      "default": "maintenance",
+      "title": "\u05e7\u05d8\u05d2\u05d5\u05e8\u05d9\u05d4"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "urgent"
+      ],
+      "default": "medium",
+      "title": "\u05d3\u05d7\u05d9\u05e4\u05d5\u05ea"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "in_progress",
+        "waiting",
+        "resolved",
+        "closed"
+      ],
+      "default": "new",
+      "title": "\u05e1\u05d8\u05d8\u05d5\u05e1 \u05d8\u05d9\u05e4\u05d5\u05dc"
+    },
+    "phone": {
+      "type": "string",
+      "title": "\u05d8\u05dc\u05e4\u05d5\u05df \u05dc\u05d9\u05e6\u05d9\u05d8\u05ea \u05e7\u05e9\u05e8"
+    },
+    "address": {
+      "type": "string",
+      "title": "\u05db\u05ea\u05d5\u05d1\u05ea"
+    },
+    "notes": {
+      "type": "string",
+      "title": "\u05d4\u05e2\u05e8\u05d5\u05ea \u05d8\u05d9\u05e4\u05d5\u05dc"
+    },
+    "messages": {
+      "type": "string",
+      "title": "\u05e6'\u05d0\u05d8 \u05d8\u05d9\u05e4\u05d5\u05dc (JSON)"
+    },
+    "assignee_id": {
+      "type": "string",
+      "title": "\u05de\u05e1\u05d4\u05d9 \u05d0\u05d7\u05e8\u05d0\u05d9"
+    },
+    "assignee_name": {
+      "type": "string",
+      "title": "\u05e9\u05dd \u05d0\u05d7\u05e8\u05d0\u05d9"
+    },
+    "requester_name": {
+      "type": "string",
+      "title": "\u05e9\u05dd \u05e4\u05d5\u05ea\u05d7 \u05d4\u05e7\u05e8\u05d9\u05d0\u05d4"
+    },
+    "requester_email": {
+      "type": "string",
+      "title": "\u05d0\u05d9\u05de\u05d9\u05d9\u05dc \u05e4\u05d5\u05ea\u05d7 \u05d4\u05e7\u05e8\u05d9\u05d0\u05d4"
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

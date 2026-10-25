@@ -1,0 +1,175 @@
+{
+  "name": "CommunityFinance",
+  "type": "object",
+  "properties": {
+    "year": {
+      "type": "string",
+      "title": "\u05e9\u05e0\u05d4 (YYYY)"
+    },
+    "name": {
+      "type": "string",
+      "title": "\u05e9\u05dd \u05de\u05dc\u05d0"
+    },
+    "first_name": {
+      "type": "string",
+      "title": "\u05e9\u05dd \u05e4\u05e8\u05d8\u05d9"
+    },
+    "last_name": {
+      "type": "string",
+      "title": "\u05e9\u05dd \u05de\u05e9\u05e4\u05d7\u05d4"
+    },
+    "id_number": {
+      "type": "string",
+      "title": "\u05ea\u05e2\u05d5\u05d3\u05ea \u05d6\u05d4\u05d5\u05ea"
+    },
+    "phone": {
+      "type": "string",
+      "title": "\u05d8\u05dc\u05e4\u05d5\u05df"
+    },
+    "city": {
+      "type": "string",
+      "title": "\u05e2\u05d9\u05e8"
+    },
+    "address": {
+      "type": "string",
+      "title": "\u05db\u05ea\u05d5\u05d1\u05ea"
+    },
+    "occupation": {
+      "type": "string",
+      "title": "\u05e2\u05d9\u05e1\u05d5\u05e7"
+    },
+    "personal_scholarship": {
+      "type": "number",
+      "title": "\u05e1\u05db\u05d5\u05dd \u05d4\u05db\u05e0\u05e1\u05d4 /\u05de\u05dc\u05d2\u05d4 (\u05d0\u05d9\u05e9\u05d9)"
+    },
+    "spouse_scholarship": {
+      "type": "number",
+      "title": "\u05e1\u05db\u05d5\u05dd \u05d4\u05db\u05e0\u05e1\u05d4 /\u05de\u05dc\u05d2\u05d4 (\u05d1\u05ea \u05d6\u05d5\u05d2)"
+    },
+    "fixed_income": {
+      "type": "number",
+      "title": "\u05d4\u05db\u05e0\u05e1\u05d4 \u05e7\u05d1\u05d5\u05e2\u05d4"
+    },
+    "installments_income": {
+      "type": "number",
+      "title": "\u05d4\u05db\u05e0\u05e1\u05d4 \u05de\u05de\u05e7\u05e6\u05d1\u05d0\u05d5\u05ea"
+    },
+    "total_income": {
+      "type": "number",
+      "title": "\u05e1\u05d4\"\u05db \u05d4\u05db\u05e0\u05e1\u05d5\u05ea"
+    },
+    "tuition_expense": {
+      "type": "number",
+      "title": "\u05d4\u05d5\u05e6\u05d0\u05d5\u05ea \u05de\u05d8\u05e4\u05dc\u05d5\u05ea \u05e9\u05db\"\u05dc"
+    },
+    "special_children_expense": {
+      "type": "number",
+      "title": "\u05d4\u05d5\u05e6\u05d0\u05d5\u05ea \u05d7\u05e8\u05d9\u05d2\u05d5\u05ea \u05d9\u05dc\u05d3\u05d9\u05dd"
+    },
+    "rent_expense": {
+      "type": "number",
+      "title": "\u05d4\u05d5\u05e6\u05d0\u05d5\u05ea \u05d3\u05d9\u05d5\u05e8"
+    },
+    "total_expenses": {
+      "type": "number",
+      "title": "\u05e1\u05d4\"\u05db \u05d4\u05d5\u05e6\u05d0\u05d5\u05ea"
+    },
+    "total_debt": {
+      "type": "number",
+      "title": "\u05e1\u05da \u05d7\u05d5\u05d1\u05d5\u05ea \u05db\u05dc\u05dc\u05d9"
+    },
+    "debt_reason": {
+      "type": "string",
+      "title": "\u05de\u05de\u05d4 \u05e0\u05d5\u05e6\u05e8\u05d5 \u05d4\u05d7\u05d5\u05d1\u05d5\u05ea"
+    },
+    "monthly_repayment": {
+      "type": "number",
+      "title": "\u05e1\u05db\u05d5\u05dd \u05d4\u05d7\u05d6\u05e8 \u05d7\u05d5\u05d3\u05e9\u05d9"
+    },
+    "children_count": {
+      "type": "number",
+      "title": "\u05de\u05e1\u05e4\u05e8 \u05d9\u05dc\u05d3\u05d9\u05dd"
+    },
+    "raw_data": {
+      "type": "string",
+      "title": "\u05e0\u05ea\u05d5\u05e0\u05d9 \u05e9\u05d5\u05e8\u05d4 \u05de\u05dc\u05d0\u05d9\u05dd (JSON)"
+    },
+    "improving": {
+      "type": "string",
+      "enum": [
+        "improving",
+        "stable",
+        "declining",
+        "new"
+      ],
+      "default": "new",
+      "title": "\u05e9\u05d9\u05e4\u05d5\u05e8 \u05db\u05dc\u05db\u05dc\u05d9"
+    },
+    "program_participation": {
+      "type": "boolean",
+      "default": false,
+      "title": "\u05de\u05e9\u05ea\u05ea\u05e3 \u05d1\u05ea\u05d5\u05db\u05e0\u05d9\u05ea"
+    }
+  },
+  "required": [
+    "year",
+    "name"
+  ],
+  "rls": {
+    "create": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        }
+      ]
+    },
+    "read": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        },
+        {
+          "created_by_id": "{{user.id}}"
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

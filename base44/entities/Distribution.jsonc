@@ -1,0 +1,180 @@
+{
+  "name": "Distribution",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "\u05e9\u05dd \u05d4\u05d7\u05dc\u05d5\u05e7\u05d4"
+    },
+    "holiday": {
+      "type": "string",
+      "enum": [
+        "pesach",
+        "shavuot",
+        "rosh_hashana",
+        "succot",
+        "purim",
+        "chanukah",
+        "other"
+      ],
+      "default": "other",
+      "title": "\u05d7\u05d2"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "cash",
+        "products",
+        "vouchers",
+        "holiday_support",
+        "other"
+      ],
+      "default": "products",
+      "title": "\u05e1\u05d5\u05d2 \u05d7\u05dc\u05d5\u05e7\u05d4"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "title": "\u05ea\u05d0\u05e8\u05d9\u05da \u05d7\u05dc\u05d5\u05e7\u05d4"
+    },
+    "total_budget": {
+      "type": "number",
+      "title": "\u05ea\u05e7\u05e6\u05d9\u05d1 \u05db\u05d5\u05dc\u05dc"
+    },
+    "planned_recipients": {
+      "type": "number",
+      "title": "\u05de\u05e1\u05e4\u05e8 \u05de\u05e7\u05d1\u05dc\u05d9\u05dd \u05de\u05ea\u05d5\u05db\u05e0\u05df"
+    },
+    "default_amount": {
+      "type": "number",
+      "title": "\u05e9\u05d5\u05d5\u05d9 \u05d1\u05e8\u05d9\u05e8\u05ea \u05de\u05d7\u05d3\u05dc \u05dc\u05de\u05e7\u05d1\u05dc"
+    },
+    "default_member_part": {
+      "type": "number",
+      "title": "\u05d4\u05e9\u05ea\u05ea\u05e4\u05d5\u05ea \u05d0\u05d1\u05e8\u05da \u05d1\u05e8\u05d9\u05e8\u05ea \u05de\u05d7\u05d3\u05dc"
+    },
+    "default_fund_part": {
+      "type": "number",
+      "title": "\u05d4\u05e9\u05ea\u05ea\u05e4\u05d5\u05ea \u05e7\u05d5\u05e4\u05d4 \u05d1\u05e8\u05d9\u05e8\u05ea \u05de\u05d7\u05d3\u05dc"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "planning",
+        "active",
+        "completed"
+      ],
+      "default": "planning",
+      "title": "\u05e1\u05d8\u05d8\u05d5\u05e1"
+    },
+    "recurrence": {
+      "type": "string",
+      "enum": [
+        "none",
+        "weekly",
+        "biweekly",
+        "monthly"
+      ],
+      "default": "none",
+      "title": "\u05de\u05d7\u05d6\u05d5\u05e8\u05d9\u05d5\u05ea"
+    },
+    "notes": {
+      "type": "string",
+      "title": "\u05d4\u05e2\u05e8\u05d5\u05ea"
+    },
+    "tasks": {
+      "type": "string",
+      "title": "\u05de\u05e9\u05d9\u05de\u05d5\u05ea (JSON)"
+    },
+    "categories": {
+      "type": "string",
+      "title": "\u05e7\u05d8\u05d2\u05d5\u05e8\u05d9\u05d5\u05ea \u05ea\u05de\u05d9\u05db\u05d4 (JSON)"
+    },
+    "points": {
+      "type": "string",
+      "title": "\u05e0\u05e7\u05d5\u05d3\u05d5\u05ea \u05dc\u05d7\u05d1\u05e8 (JSON)"
+    },
+    "vouchers_overrides": {
+      "type": "string",
+      "title": "\u05e2\u05e8\u05d9\u05db\u05d5\u05ea \u05d9\u05d3\u05e0\u05d9\u05d5\u05ea \u05e1\u05d4\"\u05db \u05ea\u05d5\u05d9\u05dd (JSON)"
+    },
+    "data_locked": {
+      "type": "boolean",
+      "default": false,
+      "title": "\u05e0\u05ea\u05d5\u05e0\u05d9 \u05de\u05e7\u05d1\u05dc\u05d9\u05dd \u05e7\u05d1\u05d5\u05e2\u05d9\u05dd (\u05dc\u05d0 \u05de\u05ea\u05e2\u05d3\u05db\u05e0\u05d9\u05dd \u05de\u05d4\u05e7\u05d4\u05d9\u05dc\u05d4)"
+    },
+    "locked_at": {
+      "type": "string",
+      "title": "\u05de\u05d5\u05e2\u05d3 \u05e7\u05d9\u05d1\u05d5\u05e2 \u05d4\u05e0\u05ea\u05d5\u05e0\u05d9\u05dd"
+    },
+    "members_snapshot": {
+      "type": "string",
+      "title": "\u05e6\u05d9\u05dc\u05d5\u05dd \u05e0\u05ea\u05d5\u05e0\u05d9 \u05d7\u05d1\u05e8\u05d9\u05dd \u05d1\u05e2\u05ea \u05d4\u05e7\u05d9\u05d1\u05d5\u05e2 (JSON) - \u05dc\u05d7\u05dc\u05d5\u05e7\u05d5\u05ea \u05ea\u05de\u05d9\u05db\u05ea \u05d7\u05d2\u05d9\u05dd"
+    },
+    "group_id": {
+      "type": "string",
+      "title": "\u05e7\u05d1\u05d5\u05e6\u05ea \u05d7\u05dc\u05d5\u05e7\u05d5\u05ea (\u05ea\u05d9\u05e7\u05d9\u05d9\u05d4)"
+    }
+  },
+  "required": [
+    "title",
+    "type"
+  ],
+  "rls": {
+    "create": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        }
+      ]
+    },
+    "read": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        },
+        {
+          "created_by_id": "{{user.id}}"
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}
